@@ -30,6 +30,14 @@ namespace SignalRHub.Controllers
             _hub.Clients.All.SendAsync("InputData", DataManager.GetData());
             return Ok(new { Message = "Request Completed..." });
         }
+
+        [HttpGet]
+        [Route("startquestionpoll")]
+        public IActionResult Startquestionpoll()
+        {
+            _hub.Clients.All.SendAsync("startquestionpoll", 123);
+            return Ok(new { Message = "startquestionpoll Request Completed..." });
+        }
     }
 
 }
